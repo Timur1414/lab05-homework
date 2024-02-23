@@ -18,5 +18,5 @@ TEST(Banking_tests, Transaction2) {
     Transaction t1(&a, &b, 50);
     t1.exec();
     EXPECT_EQ(a.get_money(), 10);
-    EXPECT_EQ(b.get_money(), 550);
+    EXPECT_EQ(b.get_money(), 50);
 }
