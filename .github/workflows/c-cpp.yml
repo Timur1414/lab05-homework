@@ -14,6 +14,10 @@ jobs:
     
     - name: build
       run: |
+        ls
+        ls third-party
+        ls third-party/gtest
+        make -H. -B_build -BUILD_TESTS=ON
         cmake --build _build
       
     - name: tests
