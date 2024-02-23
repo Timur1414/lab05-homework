@@ -1,4 +1,4 @@
-#include "../lib/banking.h"
+#include <banking.h>
 #include <iostream>
 
 
