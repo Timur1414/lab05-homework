@@ -14,6 +14,7 @@ jobs:
     
     - name: build
       run: |
+        echo LS:
         ls third-party/gtest
         cmake -H. -B_build -DBUILD_TESTS=ON
         cmake --build _build
