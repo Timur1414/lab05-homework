@@ -14,8 +14,11 @@ jobs:
     
     - name: build
       run: |
+        echo LS 1
         ls
+        echo LS 2
         ls third-party
+        echo LS 3
         ls third-party/gtest
         make -H. -B_build -BUILD_TESTS=ON
         cmake --build _build
