@@ -1,0 +1,21 @@
+name: tests
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: build
+      run: |
+        cmake -H. -B_build -DBUILD_TESTS=ON
+        cmake --build _build
+      
+    - name: tests
+      run: _build/check
