@@ -21,7 +21,11 @@ jobs:
         cmake --build _build
       
     - name: tests
-      run: _build/check
+      run: |
+        _build/check
+        g++ --coverage source/example.cpp lib/banking.cpp lib/banking.h -o example
+        ./example
+        lcov -t "example" -c -d . 
       
     - name: Coveralls
       uses: coverallsapp/github-action@v2
