@@ -4,6 +4,7 @@
 
 class Transaction_Interface {
 public:
+    Transaction_Mock(Account*, Account*, int) {}
     virtual ~Transaction_Interface() = default;
     virtual bool can_exec() = 0;
     virtual void exec() {
