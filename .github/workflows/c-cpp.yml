@@ -27,7 +27,7 @@ jobs:
 
     - name: Prepare coveralls
       run: |
-        cmake --build _build_build --target coveralls
+        cmake --build _build --target coveralls
         cd _build
       continue-on-error: true
               
