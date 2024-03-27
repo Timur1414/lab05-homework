@@ -4,7 +4,6 @@
 
 class Transaction_Interface {
 public:
-    Transaction_Mock(Account*, Account*, int) {}
     virtual ~Transaction_Interface() = default;
     virtual bool can_exec() = 0;
     virtual void exec() {
@@ -16,7 +15,6 @@ public:
 
 class Transaction_Mock : public Transaction_Interface {
 public:
-    Transaction_Mock(Account* from, Account* to, int sum) : Transaction_Interface(from, to, sum) {}
     ~Transaction_Mock() override  = default;
     MOCK_METHOD0(can_exec, bool());
     MOCK_METHOD0(exec, void());
@@ -47,7 +45,7 @@ TEST(Banking_tests, Mock) {
     int last_id = 0;
     Account a(last_id, 10);
     Account b(last_id, 50);
-    Transaction_Mock t1(&a, &b, 10);
+    Transaction_Mock t1;
     EXPECT_CALL(t1, can_exec()).Times(1);
     t1.exec();
     EXPECT_CALL(t1, exec()).Times(1);    
