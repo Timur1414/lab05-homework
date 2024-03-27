@@ -7,7 +7,7 @@ class Transaction_Mock : public Transaction {
 public:
     ~Transaction_Mock() override = default;
     MOCK_METHOD0(can_exec, bool());
-}
+};
 
 
 TEST(Banking_tests, Transaction1) {
