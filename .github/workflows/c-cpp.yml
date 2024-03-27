@@ -16,8 +16,8 @@ jobs:
       run: |
         mkdir third-party
         git submodule add https://github.com/google/googletest third-party/gtest
+        git submodule add https://github.com/JoakimSoderberg/coveralls-cmake.git third-party/coveralls
         cd third-party/gtest && git checkout release-1.11.0 && cd ../..
-        git submodule update --init
         cmake -H. -B_build -DBUILD_TESTS=ON
         cmake --build _build
       
