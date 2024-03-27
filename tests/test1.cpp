@@ -46,7 +46,7 @@ TEST(Banking_tests, Mock) {
     Account a(last_id, 10);
     Account b(last_id, 50);
     Transaction_Mock t1;
-    EXPECT_CALL(t1, can_exec()).Times(1);
+    EXPECT_CALL(t1, can_exec());
     t1.exec();
-    EXPECT_CALL(t1, exec()).Times(1);    
+    EXPECT_CALL(t1, exec());    
 }
