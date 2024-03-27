@@ -6,7 +6,7 @@ project(banking)
 option(BUILD_TESTS "Build tests" OFF)
 
 if (BUILD_TESTS)
-	include(Coveralls)
+	include(third-party/coveralls/cmake/Coveralls.cmake)
 	coveralls_turn_on_coverage()
 endif()
 
