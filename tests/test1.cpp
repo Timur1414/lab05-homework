@@ -5,7 +5,7 @@
 
 class Transaction_Mock : public Transaction {
 public:
-    ~Transaction_Mock() override = default;
+    ~Transaction_Mock() = default;
     MOCK_METHOD0(can_exec, bool());
 };
 
