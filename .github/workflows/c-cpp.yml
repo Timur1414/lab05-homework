@@ -20,11 +20,14 @@ jobs:
         cd third-party/gtest && git checkout release-1.11.0 && cd ../..
         cmake -H. -B_build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Debug
         cmake --build _build
-        cmake --build _build --target coveralls
       
     - name: tests
       run: |
         _build/check
+
+    - name: Prepare coveralls
+      run: |
+        cmake --build _build --target coveralls
               
     - name: Coveralls
       uses: coverallsapp/github-action@v2
