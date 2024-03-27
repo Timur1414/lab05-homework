@@ -5,12 +5,21 @@ project(banking)
 
 option(BUILD_TESTS "Build tests" OFF)
 
+if (BUILD_TESTS)
+	include(Coveralls)
+	coveralls_turn_on_coverage()
+endif()
+
 include_directories(lib source)
 add_library(banking STATIC lib/banking.h lib/banking.cpp)
 add_executable(example source/example.cpp)
 target_link_libraries(example banking)
 
 if(BUILD_TESTS)
+    coveralls_setup(
+        "${LIB_SRC}" 
+        ${COVERALLS_UPLOAD}                 
+        "${PROJECT_SOURCE_DIR}/coveralls-cmake/cmake")
     enable_testing()
     add_subdirectory(third-party/gtest)
     file(GLOB banking_tests "tests/*.cpp")
